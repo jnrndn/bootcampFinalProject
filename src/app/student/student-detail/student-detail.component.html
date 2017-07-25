@@ -1,0 +1,17 @@
+<div class="container">
+  <md-card *ngIf="student" class="example-card">
+    <md-card-header>
+      <md-card-title class="title">{{student.fullName | uppercase}} </md-card-title> 
+    </md-card-header>
+    <img md-card-image [src]="student.photo"> 
+    <md-card-content>
+      <div *ngFor="let grade of student.grades; let i = index">
+      <span>Nota {{i+1}}: {{ grade.assignment }}</span>
+      </div>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="goBack()" >Back</button>
+      <button md-button>Edit</button>
+    </md-card-actions>
+  </md-card>
+</div>

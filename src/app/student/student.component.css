@@ -1,0 +1,25 @@
+.example-container{
+    display: inline-table;
+    text-align: center;
+}
+td {
+    cursor: pointer
+}
+.example-button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+img {
+    width: 50px;
+}
+
+.missing{
+    background-color: red;
+}
+
+.complete{
+    background-color: green;
+}
+
