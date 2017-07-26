@@ -1,7 +1,9 @@
-import { StudentService } from './../student.service';
+import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
+import { MdSnackBar } from '@angular/material';
+import { StudentService } from './../student.service';
 import { Student } from './../student';
 
 import 'rxjs/add/operator/switchMap';
@@ -15,18 +17,20 @@ import 'rxjs/add/operator/map';
 export class StudentDetailComponent implements OnInit {
 
   @Input() student: Student;
-
   edit:boolean = false;
   cont:number = 0;
+ 
 
   constructor(
-     private router:ActivatedRoute,
+     private activedRoute:ActivatedRoute,
+     private router: Router,
      private location: Location,
-     private studentService:StudentService
+     private studentService:StudentService,
+     public snakBar: MdSnackBar
    ) { }
 
   ngOnInit() {
-    this.router.paramMap
+    this.activedRoute.paramMap
       .switchMap((params: ParamMap)=> this.studentService.getstudent(+params.get('id')))
       .subscribe(student => this.student = student)
   }
@@ -37,6 +41,11 @@ export class StudentDetailComponent implements OnInit {
 
   toEdit(){
     this.edit = !this.edit;
+  }
+
+  toDelete(student: Student){
+    this.studentService.delete(student.id)
+      .then(() => this.router.navigate(['/']))
   }
 
   save(){
@@ -56,5 +65,12 @@ export class StudentDetailComponent implements OnInit {
 
   cancel(){
     this.edit = !this.edit;
+  }
+
+  openSnackbar(student: Student){
+    this.snakBar.open(`Are you sure to delete ${student.fullName}?`, 'Delete',{ duration:5000 })
+    .onAction()
+    .toPromise()
+    .then(() => this.toDelete(student))
   }
 }

@@ -1,3 +1,4 @@
+import { AddComponent } from './student/add/add.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -6,9 +7,10 @@ import { StudentDetailComponent } from './student/student-detail/student-detail.
 
 
 const routes: Routes = [
-    { path: '', component: StudentComponent },
     { path: 'students', component: StudentComponent },
     { path: 'detail/:id', component: StudentDetailComponent },
+    { path: 'add', component: AddComponent },
+    { path: '**', pathMatch: 'full', redirectTo: 'students' }
 ];
 
 @NgModule({

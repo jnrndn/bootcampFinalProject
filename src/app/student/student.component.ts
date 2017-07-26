@@ -43,7 +43,7 @@ export class StudentComponent implements OnInit {
       student.json().data.map((s) => {
         this.avgGrade = 0;
         s.grades.forEach(grade => {
-          this.avgGrade += grade.assignment;
+          this.avgGrade += grade
         })        
         this.avgGrade /= 6;
         this.students.push({
@@ -103,6 +103,10 @@ export class StudentComponent implements OnInit {
 
   goToDetail():void{    
     this.router.navigate(['/detail', this.selectedStudent.id]);
+  }
+
+  addStudent(){
+    this.router.navigate(['/add'])
   }
 }
 

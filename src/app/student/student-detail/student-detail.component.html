@@ -1,29 +1,23 @@
 <div class="container">
   <md-card *ngIf="student" class="example-card">
-    <md-card-header>
+    <md-card-header *ngIf="!edit">
       <md-card-title class="title">{{student.fullName | uppercase}} </md-card-title> 
     </md-card-header>
-    <img md-card-image [src]="student.photo"> 
+    <img *ngIf="!edit" md-card-image [src]="student.photo"> 
     <md-card-content>
       <div *ngIf="!edit">
         <div *ngFor="let grade of student.grades; let i = index">
-          <span>Nota {{i+1}}: {{ grade.assignment }}</span>
+          <span>Nota {{i+1}}: {{ grade }}</span>
         </div>
       </div>
       <div *ngIf="edit">
-        <div *ngFor="let grade of student.grades; let i = index">
-          <md-input-container >
-            <input mdInput placeholder="Note {{i+1}}" [(ngModel)]="grade.assignment" type="number" >
-          </md-input-container>
-        </div>
-        
+        <app-form [student]="student" ></app-form>
       </div>
     </md-card-content>
     <md-card-actions>
       <button *ngIf="!edit" md-button (click)="goBack()" >Back</button>
       <button *ngIf="!edit" md-button (click)="toEdit()" >Edit</button>
-      <button *ngIf="edit" md-button (click)="save()" >Save</button>
-      <button *ngIf="edit" md-button (click)="cancel()" >Cancel</button>
+      <button *ngIf="!edit" md-button (click)="openSnackbar(student)" >Delete</button>
     </md-card-actions>
   </md-card>
 </div>

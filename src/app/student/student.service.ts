@@ -34,6 +34,13 @@ export class StudentService {
       .catch(this.handleError);
   }
 
+  delete(id: number): Promise<any>{
+    return this.http.delete(`${this.URL}/${id}`, {headers: this.headers})
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError)
+  }
+
 
   private handleError(error :any): Promise<any> {
     console.log('An error ocurred ', error);

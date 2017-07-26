@@ -9,3 +9,9 @@
 img {
     width: 300px;
 }
+
+.error {
+    display: block;
+    text-align: center;
+    color: red;
+}
