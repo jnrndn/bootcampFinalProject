@@ -25,7 +25,7 @@ export class StudentComponent implements OnInit {
   checked:boolean = false;
   disabled:boolean = false;
   avgGrade:number = 0;
-  students: Student[] = [];
+  students = [];
   temp: Student[] = [];
   copy: Student[] = this.students;
   selectedStudent: Student;
@@ -101,9 +101,7 @@ export class StudentComponent implements OnInit {
     }
   }
 
-  goToDetail():void{
-    console.log('click');
-    
+  goToDetail():void{    
     this.router.navigate(['/detail', this.selectedStudent.id]);
   }
 }

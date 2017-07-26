@@ -39,7 +39,7 @@
           <td>{{student.averagegrade | number:'1.0-1' }}</td>
           <td [class.complete]="student.deliveredhmwkrs == 6" >{{student.deliveredhmwkrs}}</td>
           <td [class.missing]="student.missingHmwrks > 0" >{{student.missingHmwrks }}</td>  
-          <td>{{student.lastUpdate}}</td>
+          <td>{{student.lastUpdate | date:'medium' }}</td>
         </tr>
       </table>
     </div>

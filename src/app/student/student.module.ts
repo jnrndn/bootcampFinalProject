@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 
 import { MdSlideToggleModule, MdSortModule, MdButtonModule, MdCardModule, MdTableModule, MdInputModule } from '@angular/material';
 import  {BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +17,7 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
   imports: [
     CommonModule,
     HttpModule,
+    FormsModule,
     BrowserAnimationsModule,
     MdSlideToggleModule,
     MdSortModule,

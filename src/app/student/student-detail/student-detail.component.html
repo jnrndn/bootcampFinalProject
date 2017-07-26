@@ -5,13 +5,25 @@
     </md-card-header>
     <img md-card-image [src]="student.photo"> 
     <md-card-content>
-      <div *ngFor="let grade of student.grades; let i = index">
-      <span>Nota {{i+1}}: {{ grade.assignment }}</span>
+      <div *ngIf="!edit">
+        <div *ngFor="let grade of student.grades; let i = index">
+          <span>Nota {{i+1}}: {{ grade.assignment }}</span>
+        </div>
+      </div>
+      <div *ngIf="edit">
+        <div *ngFor="let grade of student.grades; let i = index">
+          <md-input-container >
+            <input mdInput placeholder="Note {{i+1}}" [(ngModel)]="grade.assignment" type="number" >
+          </md-input-container>
+        </div>
+        
       </div>
     </md-card-content>
     <md-card-actions>
-      <button md-button (click)="goBack()" >Back</button>
-      <button md-button>Edit</button>
+      <button *ngIf="!edit" md-button (click)="goBack()" >Back</button>
+      <button *ngIf="!edit" md-button (click)="toEdit()" >Edit</button>
+      <button *ngIf="edit" md-button (click)="save()" >Save</button>
+      <button *ngIf="edit" md-button (click)="cancel()" >Cancel</button>
     </md-card-actions>
   </md-card>
 </div>

@@ -15,7 +15,7 @@ export class APIService implements InMemoryDbService {
         ],
         deliveredhmwkrs: 6,
         missingHmwrks: 0,
-        lastUpdate: ''
+        lastUpdate: '1501038596527'
       },
       { id: 2,
         fullName: 'Andres Aguirre',
@@ -30,7 +30,7 @@ export class APIService implements InMemoryDbService {
         ],
         deliveredhmwkrs: 6,
         missingHmwrks: 0,
-        lastUpdate: ''
+        lastUpdate: '1501038596527'
       },
       { id: 3,
         fullName: 'Juan Rendon',
@@ -45,7 +45,7 @@ export class APIService implements InMemoryDbService {
         ],
         deliveredhmwkrs: 6,
         missingHmwrks: 0,
-        lastUpdate: ''
+        lastUpdate: '1501038596527'
       },
       { id: 4,
         fullName: 'Jose Camargo',
@@ -60,7 +60,7 @@ export class APIService implements InMemoryDbService {
         ],
         deliveredhmwkrs: 6,
         missingHmwrks: 0,
-        lastUpdate: ''
+        lastUpdate: '1501038596527'
       },
       { id: 5,
         fullName: 'Daniela Lopez',
@@ -75,7 +75,7 @@ export class APIService implements InMemoryDbService {
         ],
         deliveredhmwkrs: 6,
         missingHmwrks: 0,
-        lastUpdate: ''
+        lastUpdate: '1501038596527'
       },
       { id: 6,
         fullName: 'Susana Hoyos',
@@ -90,7 +90,7 @@ export class APIService implements InMemoryDbService {
         ],
         deliveredhmwkrs: 6,
         missingHmwrks: 0,
-        lastUpdate: ''
+        lastUpdate: '1501038596527'
       },
       { id: 7,
         fullName: 'Manuela Giraldo',
@@ -105,7 +105,7 @@ export class APIService implements InMemoryDbService {
         ],
         deliveredhmwkrs: 5,
         missingHmwrks: 1,
-        lastUpdate: ''
+        lastUpdate: '1501038596527'
       },
 
     ];

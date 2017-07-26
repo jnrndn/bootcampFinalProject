@@ -1,6 +1,6 @@
 import { Student } from './student';
 import { Injectable } from '@angular/core';
-import { Http,Response } from "@angular/http";
+import { Headers, Http, Response } from "@angular/http";
 
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/toPromise';
@@ -10,6 +10,7 @@ import 'rxjs/add/operator/toPromise';
 export class StudentService {
 
   URL:string ='api/students';
+  private headers = new Headers({ 'Content-type': 'application/json' });
 
 
   constructor( private http: Http) { }
@@ -22,7 +23,21 @@ export class StudentService {
   getstudent(id):Promise<Student>{
     return this.http.get(`${this.URL}/${id}`)
       .toPromise()
-      .then(response => response.json().data as Student);
+      .then(response => response.json().data as Student)
+      .catch(this.handleError);
+  }
 
+  update(student: Student): Promise<Student> {
+    return this.http.put(`${this.URL}/${student.id}`, JSON.stringify(student), {headers: this.headers})
+      .toPromise()
+      .then(() => student)
+      .catch(this.handleError);
+  }
+
+
+  private handleError(error :any): Promise<any> {
+    console.log('An error ocurred ', error);
+    return Promise.reject(error.message || error);
+    
   }
 }
