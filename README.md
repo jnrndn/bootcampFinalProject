@@ -1,28 +1,24 @@
 # FinalProject
 
+Welcome to the last of many practices made for the Angular Bootcamp, sponsored by Yuxi Glogal.
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
-## Development server
+## Architecture
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    * `AppModule` is the root module. include the App-routing module to add navigation into the app.
+    * `StudentModule` gots the core of the app, here you'll found the leaderboard, the detail for each student
+            and the options to update, delete or create a new student
+    * SharedModule contains the `formComponent`, a dummy component to reuse in all forms in the app
 
-## Code scaffolding
+    - In the `StudentModule` you'll found the Student `Service` which calls the mock api to get/put/update/post data
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
-## Build
+    - buttons-imputs-tables was generated with [Angular Material](https://material.angular.io/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Errata
 
-## Running unit tests
+    * Creating the dummy component broke the `Create form` and is giving an error. We're working to solve this.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

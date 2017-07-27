@@ -11,7 +11,7 @@
         </div>
       </div>
       <div *ngIf="edit">
-        <app-form [student]="student" ></app-form>
+        <app-form [student]="student" (updateButton)="updateReciber($event)" ></app-form>
       </div>
     </md-card-content>
     <md-card-actions>

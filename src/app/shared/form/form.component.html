@@ -1,4 +1,4 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form)" >
+<form #form="ngForm" >
   <md-card-content>
     <div *ngIf="!student">
       <md-input-container > 
@@ -19,8 +19,9 @@
     <div>
       <md-input-container > 
         <input mdInput placeholder="Grade 1:" name="grade1" id="grade1" 
-                #grade1="ngModel" type="number" min="0" max="5" 
-                step="any" [(ngModel)]=grades[0] required>
+            #grade1="ngModel" type="number" min="0" max="5" 
+            pattern="^(?:5(?:\.0)?|[1-5](?:\.[0-9])?|0?\.[1-9])$" 
+            [(ngModel)]=grades[0] required>
           <div *ngIf="grade1.errors && (grade1.dirty || grade1.touched)"
                 class="error" >
             <div [hidden]="!grade1.errors.required">Grade is required</div>
@@ -32,7 +33,8 @@
       <md-input-container > 
           <input mdInput placeholder="Grade 2:" name="grade2" id="grade2" 
             #grade2="ngModel" type="number" min="0" max="5" 
-            step="0.1" [(ngModel)]=grades[1] required>
+            pattern="^(?:5(?:\.0)?|[1-5](?:\.[0-9])?|0?\.[1-9])$" 
+            [(ngModel)]=grades[1] required>
           <div *ngIf="grade2.errors && (grade2.dirty || grade2.touched)"
               class="error" >
             <div [hidden]="!grade2.errors.required">Grade is required</div>
@@ -44,7 +46,8 @@
       <md-input-container > 
           <input mdInput placeholder="Grade 3:" name="grade3" id="grade3" 
             #grade3="ngModel" type="number" min="0" max="5" 
-            step="0.1" [(ngModel)]=grades[2] required>
+            pattern="^(?:5(?:\.0)?|[1-5](?:\.[0-9])?|0?\.[1-9])$" 
+            [(ngModel)]=grades[2] required>
           <div *ngIf="grade3.errors && (grade3.dirty || grade3.touched)"
               class="error" >
             <div [hidden]="!grade3.errors.required">Grade is required</div>
@@ -56,7 +59,8 @@
       <md-input-container > 
           <input mdInput placeholder="Grade 4:" name="grade4" id="grade4" 
             #grade4="ngModel" type="number" min="0" max="5" 
-            step="0.1" [(ngModel)]=grades[3] required>
+            pattern="^(?:5(?:\.0)?|[1-5](?:\.[0-9])?|0?\.[1-9])$" 
+            [(ngModel)]=grades[3] required>
           <div *ngIf="grade4.errors && (grade4.dirty || grade4.touched)"
               class="error" >
             <div [hidden]="!grade4.errors.required">Grade is required</div>
@@ -68,7 +72,8 @@
       <md-input-container > 
           <input mdInput placeholder="Grade 5:" name="grade5" id="grade5" 
             #grade5="ngModel" type="number" min="0" max="5" 
-            step="0.1" [(ngModel)]=grades[4] required>
+            pattern="^(?:5(?:\.0)?|[1-5](?:\.[0-9])?|0?\.[1-9])$" 
+            [(ngModel)]=grades[4] required>
           <div *ngIf="grade5.errors && (grade5.dirty || grade5.touched)"
               class="error" >
             <div [hidden]="!grade5.errors.required">Grade is required</div>
@@ -80,7 +85,8 @@
       <md-input-container > 
           <input mdInput placeholder="Grade 6:" name="grade6" id="grade6" 
             #grade6="ngModel" type="number" min="0" max="5" 
-            step="0.1" [(ngModel)]=grades[5] required >
+            pattern="^(?:5(?:\.0)?|[1-5](?:\.[0-9])?|0?\.[1-9])$" 
+            [(ngModel)]=grades[5] required >
           <div *ngIf="grade6.errors && (grade6.dirty || grade6.touched)"
               class="error" >
             <div [hidden]="!grade6.errors.required">Grade is required</div>
@@ -90,7 +96,7 @@
     </div>
   </md-card-content>
 
-    <button *ngIf="!student" md-button type="submit" [disabled]="!form.valid" >Save</button>
-    <button *ngIf="student" md-button (click)=update() >Update</button>
+    <button *ngIf="!student" md-button (click)=save(form.value) [disabled]="!form.valid" >Save</button>
+    <button *ngIf="student" md-button (click)=update(form.value) [disabled]="!form.valid" >Update</button>
     <button md-button (click)=cancel() >Cancel</button>
 </form>

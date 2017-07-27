@@ -17,6 +17,8 @@ import 'rxjs/add/operator/map';
 export class StudentDetailComponent implements OnInit {
 
   @Input() student: Student;
+  
+  grades = [];
   edit:boolean = false;
   cont:number = 0;
  
@@ -48,19 +50,27 @@ export class StudentDetailComponent implements OnInit {
       .then(() => this.router.navigate(['/']))
   }
 
-  save(){
+  updateReciber(grades){
     this.cont = 0;
-    this.student.lastUpdate = Date.now();
+    this.grades = [
+      grades.grade1, grades.grade2, grades.grade3,
+      grades.grade4, grades.grade5, grades.grade6
+    ];
+    
+    this.student.grades = this.grades;
     this.student.grades.map(element =>{
       if(element.assignment !== 0){
         this.cont++;
       }
     })
+
     this.student.deliveredhmwkrs = this.cont;
-    this.student.missingHmwrks = 6 - this.cont; 
-    
+    this.student.missingHmwrks = 6 - this.cont;
+    this.student.lastUpdate = Date.now();
+
     this.studentService.update(this.student)
     .then(() => this.cancel())
+  
   }
 
   cancel(){
