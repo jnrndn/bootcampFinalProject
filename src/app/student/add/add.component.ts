@@ -31,7 +31,7 @@ export class AddComponent implements OnInit {
     this.student = new Student();
     this.student.grades = this.grades;
     this.student.grades.map(element =>{
-      if(element.assignment !== 0){
+      if(element != 0){
         this.cont++;
       }
     })

@@ -59,13 +59,13 @@ export class StudentDetailComponent implements OnInit {
     
     this.student.grades = this.grades;
     this.student.grades.map(element =>{
-      if(element.assignment !== 0){
+      if(element != 0){
         this.cont++;
       }
     })
 
     this.student.deliveredhmwkrs = this.cont;
-    this.student.missingHmwrks = 6 - this.cont;
+    this.student.missingHmwrks = 6 - this.cont; 
     this.student.lastUpdate = Date.now();
 
     this.studentService.update(this.student)
