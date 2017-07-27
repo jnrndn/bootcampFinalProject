@@ -14,8 +14,8 @@ export class FormComponent implements OnInit {
 
 
   @Input() student:Student;
-  @Output() submitButton: EventEmitter<any> = new EventEmitter;
-  @Output() updateButton: EventEmitter<any> = new EventEmitter;
+  @Output() submitButton: EventEmitter<any> = new EventEmitter();
+  @Output() updateButton: EventEmitter<any> = new EventEmitter();
 
   grades: number[] = [];
 
@@ -29,8 +29,6 @@ export class FormComponent implements OnInit {
   }
 
   save(form: any){
-    console.log("Dummy", form);
-    
     this.submitButton.emit(form);
   }
 

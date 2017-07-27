@@ -17,7 +17,5 @@ Welcome to the last of many execises and projects made for the Angular Bootcamp,
 
 - buttons-imputs-tables was generated with [Angular Material](https://material.angular.io/)
 
-## Errata
-
-* Creating the dummy component broke the `Create form` and is giving an error. We're working to solve this.
+`Enjoy!!!!`
 

@@ -1,4 +1,4 @@
-export interface Student {
+export class Student {
     id: any;
     fullName: any;
     photo:any;
