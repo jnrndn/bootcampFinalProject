@@ -2,6 +2,8 @@
 
 Welcome to the last of many execises and projects made for the Angular Bootcamp, sponsored by Yuxi Glogal.
 
+    --> You can find the others [here](https://github.com/jnrndn) <--
+
 
 ## Architecture
 
