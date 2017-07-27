@@ -1,6 +1,6 @@
 # FinalProject
 
-Welcome to the last of many practices made for the Angular Bootcamp, sponsored by Yuxi Glogal.
+Welcome to the last of many execises and projects made for the Angular Bootcamp, sponsored by Yuxi Glogal.
 
 
 ## Architecture
